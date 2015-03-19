@@ -11,7 +11,7 @@ Feature: View expenses by categories
     And I spent 400 in 'Health'
     And I spent 200 in 'Health'
     When I view the spent by category report
-    Then the spent by category report should match
+    Then the spent by category report should match:
         | CategoryName | SubTotal |
         | Food         | 300      |
         | Health       | 600      |
