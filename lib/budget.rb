@@ -23,7 +23,4 @@ Lotus::Model.configure do
   #
   mapping "#{__dir__}/config/mapping"
   #
-  # Alternatively, you can use a block syntax like the following:
-  mapping do
-  end
 end.load!
