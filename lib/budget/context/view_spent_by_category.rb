@@ -25,6 +25,12 @@ module Context
         end
       end
 
+      def total
+        categories.all.inject(0) do |total, category| 
+          total += category.expense_subtotal 
+        end
+      end
+
       private
 
       def headers

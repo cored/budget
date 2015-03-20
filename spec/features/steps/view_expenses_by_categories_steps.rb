@@ -17,6 +17,10 @@ module ViewExpensesByCategories
     table.map_column!(:SubTotal) { |subtotal| subtotal.to_i }
     expect(table.raw.to_h).to eql @presenter.to_h
   end
+
+  step 'the total should be :total' do |total| 
+    expect(total.to_i).to eql @presenter.total
+  end
 end
 
 RSpec.configure { |c| c.include ViewExpensesByCategories }
