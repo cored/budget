@@ -19,13 +19,17 @@ module Context
       end
 
       def to_h
-        categories.all.inject({"CategoryName" => "SubTotal"}) do |rows, category|
+        categories.all.inject(headers) do |rows, category|
           rows[category.name] = category.expense_subtotal
           rows
         end
       end
 
       private
+
+      def headers
+        {"CategoryName" => "SubTotal"}
+      end
 
       attr_reader :categories
     end
