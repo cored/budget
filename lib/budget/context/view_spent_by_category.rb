@@ -15,6 +15,14 @@ module Context
     class Presenter
       def initialize(categories)
         @categories = categories
+        @rows = []
+      end
+
+      def to_h
+        categories.all.inject({"CategoryName" => "SubTotal"}) do |rows, category|
+          rows[category.name] = category.expense_subtotal
+          rows
+        end
       end
 
       private
