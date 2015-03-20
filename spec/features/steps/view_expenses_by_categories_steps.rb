@@ -10,12 +10,12 @@ module ViewExpensesByCategories
   end
 
   step 'I view the spent by category report' do
-    @presenter = Context::ViewSpentByCategory.exec 
+    @presenter = Context::ViewSpentByCategory.exec
   end
 
   step 'the spent by category report should match:' do |table|
-    require 'pry'; binding.pry  
-    expect(table.raw).to eql @presenter.to_a
+    table.map_column!(:SubTotal) { |subtotal| subtotal.to_i }
+    expect(table.raw.to_h).to eql @presenter.to_h
   end
 end
 
